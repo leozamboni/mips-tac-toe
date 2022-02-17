@@ -1,3 +1,6 @@
+# MIPS TAC TOE
+# Copyright (c) 2022 Leonardo Z. Nunes
+
 .data
 buffer:
 .space 16
@@ -11,14 +14,13 @@ AN:
 
 winX:
 .asciiz "\nX WIN"
-
 winO:
 .asciiz "\nO WIN"
+
 errorstr:
 .asciiz "invalid movement"
 linefeed:
 .asciiz "\n"
-
 
 .text
 .globl main
@@ -27,7 +29,6 @@ li $t1, 0
 li $t2, 3
 li $s2, 3						# if mod of 3 print line feed
 li $s3, 1						# player
-
 
 printAN:						# print AN letters
 la $a0, AN
@@ -201,7 +202,6 @@ lw $t0, matrix($t1)
 		add $t2, $t2, 12		# increment matrix
 
 		j checkColumnCX			# loop
-
 
 		columnAO:				# check if X wins in column A
 		li $t0, 0				# matrix value
